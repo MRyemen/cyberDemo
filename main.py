@@ -171,19 +171,24 @@ if __name__== "__main__":
     # Test uppercase
     for char in check2: #checks if the encrypt and decrypt table are synced
         assert decrypt_table[encrypt_table[char]] == char, "Code error :The encrypt table and the decrypt table are not synchronized"
+    logging.info ("the tables are synced ")
     print ("The encrypt table and the decrypt table were synchronized successfully!")
 #----------------------------------------------------------------------------------------
-    if sys.argv[1] == 'encrypt': #checks sys.argv[1]
-        result_nums = convert()
-        main_encrypt(result_nums)
+    if len(sys.argv) >= 2:
+        if sys.argv[1] == 'encrypt': #checks sys.argv[1]
+          result_nums = convert()
+          main_encrypt(result_nums)
 
-    elif sys.argv[1] == 'decrypt': #checks sys.argv[1]
-        main_decrypt()
+        elif sys.argv[1] == 'decrypt': #checks sys.argv[1]
+            main_decrypt()
 
-    else: #if the two ifs (if and elif) are false then user must have entered a wrong sys.argv[1] therefor we have a logging error and a print to the user
-        logging.error("sys.argv has been failed to be read")
-        print ('sys.argv variable is incorrect please check it')
 
+        else: #if the two ifs (if and elif) are false then user must have entered a wrong sys.argv[1] therefor we have a logging error and a print to the user
+            logging.error("sys.argv has been failed to be read")
+            print ('sys.argv variable is incorrect please check it')
+    else:
+        logging.error("No sys.srgv[1] provided")
+        print("No arguments provided, need to give a sys.srgv[1]")
 
 
 
