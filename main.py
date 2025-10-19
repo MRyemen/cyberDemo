@@ -165,14 +165,14 @@ if __name__== "__main__":
     #assers check
     check1 = 'abcdefghijklmnopqrstuvwxyz !,-'
     check2 = 'ABCDEFGHIJKLMNOPQRSTUVWXY'
-    for char in check1:
+    for char in check1: #checks if the encrypt and decrypt table are synced
         assert decrypt_table[encrypt_table[char]] == char, "Code error :The encrypt table and the decrypt table are not synchronized"
 
     # Test uppercase
-    for char in check2:
+    for char in check2: #checks if the encrypt and decrypt table are synced
         assert decrypt_table[encrypt_table[char]] == char, "Code error :The encrypt table and the decrypt table are not synchronized"
     print ("The encrypt table and the decrypt table were synchronized successfully!")
-
+#----------------------------------------------------------------------------------------
     if sys.argv[1] == 'encrypt': #checks sys.argv[1]
         result_nums = convert()
         main_encrypt(result_nums)
