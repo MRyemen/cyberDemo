@@ -17,6 +17,12 @@ SERVER_IP = '0.0.0.0'
 SERVER_PORT = 1729
 MAX_PACKET = 1024
 
+def random_num():
+    response = str(random.randint(0, 10))
+    return response
+
+
+
 def handle_client(client_socket):
     while 1==1:
         cmd = client_socket.recv(4).decode().strip()  #gets the user input
@@ -28,10 +34,12 @@ def handle_client(client_socket):
             logging.info('command is' "TIME")
 
         elif cmd == 'NAME':
-            response = 'Dvir Zilber'
+            response = 'Dvirs server'
+            assert response == 'Dvirs server'
             logging.info('command is' "NAME")
         elif cmd == 'RAND':
-            response = str(random.randint(0, 10))
+            response = random_num()
+            assert (str(0)<=response <=str(10))
             logging.info('command is' "RAND")
         elif cmd == 'EXIT':
             response = 'Bye!'
